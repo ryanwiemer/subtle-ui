@@ -1,0 +1,5 @@
+package.json
+package-lock.json
+.contentful.json
+gatsby-config.js
+gatsby-node.js
