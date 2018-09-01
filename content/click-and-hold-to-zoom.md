@@ -26,7 +26,7 @@ class Zoom extends React.Component {
   render() {
 
     const zoomStyles = {
-      cursor: 'pointer',
+      cursor: 'zoom-in',
       transition: '1s all',
       transform: `scale(${this.state.zoom})`
     }

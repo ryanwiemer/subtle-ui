@@ -1,19 +1,17 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
 import Card from '../components/Card'
 import CardList from '../components/CardList'
 import Intro from '../components/Intro'
+import SEO from '../components/SEO'
 
 export default ({ data }) => {
   const examples = data.allMdx.edges
 
   return (
     <>
-      <Helmet>
-        <title>Subtle UI</title>
-      </Helmet>
+      <SEO/>
       <Layout>
         <Intro />
         <CardList>

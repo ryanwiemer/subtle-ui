@@ -3,7 +3,6 @@ import styled, { ThemeProvider } from 'styled-components'
 import '../styles/global'
 import theme from '../styles/theme'
 import Footer from '../components/Footer'
-import SEO from '../components/SEO'
 
 const Container = styled.div`
   max-width: ${props => props.theme.sizes.maxWidth};
@@ -18,7 +17,6 @@ class Template extends React.Component {
 
     return (
       <div className="siteRoot">
-        <SEO/>
         <ThemeProvider theme={theme}>
           <>
             <Container className="siteContent">{children}</Container>

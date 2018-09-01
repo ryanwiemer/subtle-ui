@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import { MDXProvider } from '@mdx-js/tag'
 import Layout from '../components/Layout'
@@ -10,19 +9,20 @@ import Author from '../components/Author'
 import BackButton from '../components/BackButton'
 import PostLinks from '../components/PostLinks'
 import { Markdown } from '../components/Markdown'
+import SEO from '../components/SEO'
 
 class PostTemplate extends React.Component {
   render() {
     const { data } = this.props
     const { previous, next } = this.props.pageContext
+    console.log(data)
 
     return (
       <>
-        <Helmet>
-          <title>{data.mdx.frontmatter.title}</title>
-          <meta property="og:title" content={data.mdx.frontmatter.title} />
-          <meta name="twitter:title" content={data.mdx.frontmatter.title} />
-        </Helmet>
+        <SEO
+          title={data.mdx.frontmatter.title}
+          url={data.mdx.fields.slug}
+        />
         <MDXProvider
           components={{
             ...Markdown,
@@ -49,6 +49,9 @@ export const pageQuery = graphql`
   query($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       id
+      fields {
+        slug
+      }
       code {
         body
         scope

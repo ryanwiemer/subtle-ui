@@ -3,7 +3,7 @@
 A collection of clever yet understated user interactions found on the web. This project uses React to keep the example code simple and brief.
 
 ## How To Contribute
-1. Create a new markdown file in the [`content`](https://github.com/ryanwiemer/subtle-ui/tree/master/content) folder. For example `my-cool-example.md`
+1. Create a new markdown file in the [`content`](https://github.com/ryanwiemer/subtle-ui/tree/master/content) folder. For example `my-cool-example.md`.
 2. Add the following front matter attributes:
 ```
 title: My Cool Example
@@ -22,6 +22,6 @@ github: johndoe123
 * At this time there is no way to import other external libraries. If you have any questions or need additional functionality please file an [issue](https://github.com/ryanwiemer/subtle-ui/issues).
 
 ## Development
-`npm run develop` - See a local version of the website on http://localhost:800
+`npm run develop` - See a local version of the website on http://localhost:8000
 
 `npm run prod` - See a production version of the website on http://localhost:9000
