@@ -5,7 +5,7 @@ import favicon from '../../static/favicon.ico'
 const defaultTitle = "Subtle UI"
 const defaultDescription = "A collection of clever yet understated user interactions found on the web"
 const defaultURL ="https://subtle-ui.netlify.com"
-const defaultImage ="https://subtle-ui.netlify.com/static/image.png"
+const defaultImage ="https://subtle-ui.netlify.com/image.png"
 
 const SEO = props => {
   return (
