@@ -1,4 +1,3 @@
-
 module.exports = {
   plugins: [
     {
@@ -17,12 +16,19 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
-    resolve: 'gatsby-plugin-nprogress',
+      resolve: 'gatsby-plugin-nprogress',
       options: {
         color: '#f5ce46',
         showSpinner: false,
         },
       },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS,
+        head: true,
+      },
+    },
     'gatsby-plugin-netlify'
   ],
 }

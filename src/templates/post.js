@@ -15,7 +15,6 @@ class PostTemplate extends React.Component {
   render() {
     const { data } = this.props
     const { previous, next } = this.props.pageContext
-    console.log(data)
 
     return (
       <>
