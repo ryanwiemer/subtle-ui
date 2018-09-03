@@ -39,14 +39,13 @@ class Zoom extends React.Component {
         style={zoomStyles}
         onTouchStart={this.startZoom}
         onTouchEnd={this.endZoom}
+        onTouchCancel={this.endZoom}
         onMouseDown={this.startZoom}
         onMouseUp={this.endZoom}
+        onMouseOut={this.endZoom}
         onPointerDown={this.startZoom}
         onPointerUp={this.endZoom}
         onPointerCancel={this.endZoom}
-        onMouseOut={this.endZoom}
-        onTouchCancel={this.endZoom}
-        onTouchEnd={this.endZoom}
       >
         {this.props.children}  
       </div>
