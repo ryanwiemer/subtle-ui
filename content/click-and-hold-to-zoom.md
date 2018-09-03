@@ -15,11 +15,11 @@ class Zoom extends React.Component {
    this.state = {zoom: .5}
   }
 
-  handleButtonPress = () => {
+  startZoom = () => {
     this.setState({zoom: 1})
   }
 
-  handleButtonRelease = () => {
+  endZoom = () => {
     this.setState({zoom: .5})
   }
 
@@ -35,10 +35,13 @@ class Zoom extends React.Component {
       <div style={{padding:'1em'}}>
         <div
           style={zoomStyles}
-          onTouchStart={this.handleButtonPress}
-          onTouchEnd={this.handleButtonRelease}
-          onMouseDown={this.handleButtonPress}
-          onMouseUp={this.handleButtonRelease}
+          onTouchStart={this.startZoom}
+          onTouchEnd={this.endZoom}
+          onMouseDown={this.startZoom}
+          onMouseUp={this.endZoom}
+          onMouseOut={this.endZoom}
+          onTouchCancel={this.endZoom}
+          onTouchEnd={this.endZoom}
         >
           {this.props.children}  
         </div>
@@ -49,7 +52,7 @@ class Zoom extends React.Component {
 
 render (
   <Zoom>
-    <img src="https://placekitten.com/500/500" />
+    <img src="https://placekitten.com/500/500" draggable="false"/>
   </Zoom>
 )
 ```
