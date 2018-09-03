@@ -25,27 +25,32 @@ class Zoom extends React.Component {
 
   render() {
 
-    const zoomStyles = {
-      cursor: 'zoom-in',
-      transition: '1s all',
-      transform: `scale(${this.state.zoom})`
-    }
+  const zoomStyles = {
+    cursor: 'zoom-in',
+    WebkitUserSelect: 'none',
+    WebkitTouchCallout: 'none',
+    transition: '1s all',
+    transform: `scale(${this.state.zoom})`
+  }
 
-    return (
-      <div style={{padding:'1em'}}>
-        <div
-          style={zoomStyles}
-          onTouchStart={this.startZoom}
-          onTouchEnd={this.endZoom}
-          onMouseDown={this.startZoom}
-          onMouseUp={this.endZoom}
-          onMouseOut={this.endZoom}
-          onTouchCancel={this.endZoom}
-          onTouchEnd={this.endZoom}
-        >
-          {this.props.children}  
-        </div>
+  return (
+    <div style={{padding:'1em'}}>
+      <div
+        style={zoomStyles}
+        onTouchStart={this.startZoom}
+        onTouchEnd={this.endZoom}
+        onMouseDown={this.startZoom}
+        onMouseUp={this.endZoom}
+        onPointerDown={this.startZoom}
+        onPointerUp={this.endZoom}
+        onPointerCancel={this.endZoom}
+        onMouseOut={this.endZoom}
+        onTouchCancel={this.endZoom}
+        onTouchEnd={this.endZoom}
+      >
+        {this.props.children}  
       </div>
+    </div>
     )
   }
 }
