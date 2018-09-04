@@ -34,6 +34,7 @@ const Button = styled.a`
   position: relative;
   top: 0;
   cursor: pointer;
+  user-select: none;
   &:active {
     top: 2px;
   }
