@@ -29,6 +29,7 @@ class Loop extends React.Component {
     const Container = styled.section`
       height: 500px;
       overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
       padding: 1em 1em 0 1em;
       border: 1px solid gray;
       div {
