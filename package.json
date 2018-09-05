@@ -7,7 +7,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^0.15.0",
     "@mdx-js/tag": "^0.15.0",
-    "babel-plugin-styled-components": "^1.6.0",
+    "babel-plugin-styled-components": "^1.6.1",
     "babel-standalone": "^6.26.0",
     "gatsby": "next",
     "gatsby-image": "next",
@@ -44,8 +44,8 @@
     "format": "prettier --write \"src/**/*.js\""
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-gatsby-standard": "^1.2.2",
+    "eslint": "^5.5.0",
+    "eslint-config-gatsby-standard": "^2.0.0",
     "prettier": "^1.14.2",
     "stylelint": "9.5.0",
     "stylelint-config-prettier": "^4.0.0",
