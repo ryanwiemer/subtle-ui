@@ -78,7 +78,5 @@ render (
 * Touch screen device scrolling can be tricky and inconsistent so it is common to see this ui pattern disabled on touch devices.
 * Although momentum scrolling on iOS devices is possible via `-webkit-overflow-scrolling: touch` it caused issues with the above example.
 
-
 ## Inspiration
 * https://dow-smith.com/
-j
