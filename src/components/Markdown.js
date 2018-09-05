@@ -35,6 +35,7 @@ export const H5 = styled.h5`
 export const P = styled.p`
   line-height: 1.5;
   margin: 0 0 2rem 0;
+  max-width: 600px;
 `
 
 export const A = styled.a`
@@ -62,6 +63,8 @@ export const Q = styled.blockquote`
   color: gray;
   border-left: 4px solid ${props => props.theme.colors.tertiary};
   padding: 0 0 0 0.75em;
+  line-height: 1.5;
+  max-width: 600px;
 `
 
 export const Strong = styled.strong`
@@ -71,16 +74,19 @@ export const Strong = styled.strong`
 export const Ul = styled.ul`
   list-style: disc;
   margin: 0 0 2rem 0;
+  max-width: 600px;
 `
 
 export const Ol = styled.ol`
   list-style: decimal;
   margin: 0 0 2rem 0;
+  max-width: 600px;
 `
 
 export const Li = styled.li`
-  list-style-position: inside;
-  margin: 0 0 0.25rem 0;
+  list-style-position: outside;
+  margin: 0 0 0.5rem 1em;
+  line-height: 1.5;
 `
 
 export const Table = styled.table`

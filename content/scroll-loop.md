@@ -29,7 +29,6 @@ class Loop extends React.Component {
     const Container = styled.section`
       height: 500px;
       overflow-y: scroll;
-      -webkit-overflow-scrolling: touch;
       padding: 1em 1em 0 1em;
       border: 1px solid gray;
       div {
@@ -73,3 +72,12 @@ render (
   </Loop>
 )
 ```
+
+## Caveats
+* This particular ui pattern works best on desktop.  
+* Touch screen device scrolling can be tricky and inconsistent so it is common to see this ui pattern disabled on touch devices.
+* Although momentum scrolling on iOS devices is possible via `-webkit-overflow-scrolling: touch` it caused issues with the above example.
+
+
+## Inspiration
+* https://dow-smith.com/
