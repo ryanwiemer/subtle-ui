@@ -60,3 +60,6 @@ render (
   </Zoom>
 )
 ```
+
+## Considerations
+* Provide users with written instructions or a visual indicator to teach them the functionality

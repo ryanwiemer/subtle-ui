@@ -13,33 +13,32 @@ class Loop extends React.Component {
   handleScroll = (e) => {
     const bottom = e.target.scrollHeight
     - e.target.scrollTop === e.target.clientHeight
-    const top = e.target.scrollTop === 0
     if (bottom) {
       e.target.scrollTop = 0
-    }
-    else if (top) {
-      e.target.scrollTop = e.target.scrollHeight
     }
   }
 
   render() {
     /* Styling for demo purposes only.
-      Overflow-y and a fixed height
-      are the only necessary elements. */
+       Overflow-y, height and
+       -webkit-overflow-scrolling are
+       the only necessary elements. */
     const Container = styled.section`
       height: 500px;
       overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
       padding: 1em 1em 0 1em;
       border: 1px solid gray;
       div {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: bold;
-        font-size: 1.5em;
-        background: lightblue;
+        text-align: center;
+        font-size: 1.25em;
+        line-height: 1.4;
         margin: 0 0 1em 0;
         height: 500px;
+        background: lightblue;
       }
     `
 
@@ -53,30 +52,19 @@ class Loop extends React.Component {
 
 render (
   <Loop>
+    <div>&darr; Scroll down the loop &darr;</div>
     <div>1</div>
     <div>2</div>
     <div>3</div>
     <div>4</div>
     <div>5</div>
-    <div>6</div>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
-    <div>10</div>
-    <div>11</div>
-    <div>12</div>
-    <div>13</div>
-    <div>14</div>
-    <div>15</div>
-    <div>16</div>
   </Loop>
 )
 ```
 
-## Caveats
+## Considerations
 * This particular ui pattern works best on desktop.  
 * Touch screen device scrolling can be tricky and inconsistent so it is common to see this ui pattern disabled on touch devices.
-* Although momentum scrolling on iOS devices is possible via `-webkit-overflow-scrolling: touch` it caused issues with the above example.
 
 ## Inspiration
 * https://dow-smith.com/

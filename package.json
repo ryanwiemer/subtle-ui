@@ -7,7 +7,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^0.15.0",
     "@mdx-js/tag": "^0.15.0",
-    "babel-plugin-styled-components": "^1.6.1",
+    "babel-plugin-styled-components": "^1.6.3",
     "babel-standalone": "^6.26.0",
     "gatsby": "next",
     "gatsby-image": "next",

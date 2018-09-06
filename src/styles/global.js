@@ -50,7 +50,6 @@ injectGlobal`
   }
 
   /* Site Specific Globals */
-
   body {
     background: white;
     background-size: 40px 40px;
@@ -59,6 +58,7 @@ injectGlobal`
     font-size: 100%;
     font-variant-ligatures: none;
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
     text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
