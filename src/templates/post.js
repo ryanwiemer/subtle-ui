@@ -18,10 +18,7 @@ class PostTemplate extends React.Component {
 
     return (
       <>
-        <SEO
-          title={data.mdx.frontmatter.title}
-          url={data.mdx.fields.slug}
-        />
+        <SEO title={data.mdx.frontmatter.title} url={data.mdx.fields.slug} />
         <MDXProvider
           components={{
             ...Markdown,
@@ -36,7 +33,9 @@ class PostTemplate extends React.Component {
               name={data.mdx.frontmatter.author}
               github={data.mdx.frontmatter.github}
             />
-            <MDXRenderer>{data.mdx.code.body}</MDXRenderer>
+            {typeof window !== `undefined` && (
+              <MDXRenderer>{data.mdx.code.body}</MDXRenderer>
+            )}
           </Layout>
         </MDXProvider>
       </>

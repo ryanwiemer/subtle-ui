@@ -65,19 +65,6 @@ injectGlobal`
     color: #121212;
   }
 
-  button {
-    text-decoration: none;
-    margin: 0;
-    font-size: 1em;
-    cursor: pointer;
-    border: none;
-    appearance: none;
-  }
-
-  button:focus {
-    outline: none;
-  }
-
   img {
     display: block;
   	width: 100%;

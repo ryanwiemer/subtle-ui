@@ -19,9 +19,9 @@
     "gatsby-plugin-sharp": "next",
     "gatsby-plugin-styled-components": "next",
     "gatsby-source-filesystem": "next",
-    "react": "^16.4.2",
+    "react": "^16.5.0",
     "react-confetti": "^2.3.0",
-    "react-dom": "^16.4.2",
+    "react-dom": "^16.5.0",
     "react-helmet": "^5.2.0",
     "react-live": "^1.11.0",
     "styled-components": "^3.4.5"

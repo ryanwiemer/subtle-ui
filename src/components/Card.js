@@ -48,6 +48,7 @@ const Example = styled.li`
 
 const Title = styled.h2`
   font-size: 1.5em;
+  line-height: 1.2;
   font-weight: bold;
   text-transform: capitalize;
 `

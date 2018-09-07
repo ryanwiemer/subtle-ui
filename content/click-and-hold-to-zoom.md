@@ -10,8 +10,8 @@ github: ryanwiemer
 ```javascript
 class Zoom extends React.Component {
 
-  constructor() {
-   super()
+  constructor(props) {
+   super(props)
    this.state = {zoom: .5}
   }
 
