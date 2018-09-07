@@ -12,7 +12,7 @@ class Notifications extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      title: document.title,
+      title: 'Browser Tab Notifications - Subtle UI', // Use a static title or grab document.title
       favicon: null,
       notificationFavicon: null,
       notificationCount: 0
