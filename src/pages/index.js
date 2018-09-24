@@ -11,7 +11,7 @@ export default ({ data }) => {
 
   return (
     <>
-      <SEO/>
+      <SEO />
       <Layout>
         <Intro />
         <CardList>

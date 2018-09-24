@@ -27,10 +27,6 @@ const Example = styled.li`
     width: 100%;
     color: ${props => props.theme.colors.base};
     text-decoration: none;
-    .gatsby-image-wrapper {
-      height: 0;
-      padding-bottom: 60%;
-    }
     &:hover {
       background: ${props => props.theme.colors.base};
       border-color: ${props => props.theme.colors.base};

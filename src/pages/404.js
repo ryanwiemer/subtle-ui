@@ -5,15 +5,12 @@ import Title from '../components/Title'
 import { Link } from 'gatsby'
 
 export default () => {
-
   return (
     <>
-      <SEO/>
+      <SEO />
       <Layout>
-          <Title>
-            404 - Page Not Found
-          </Title>
-          <Link to="/">Return Home</Link>
+        <Title>404 - Page Not Found</Title>
+        <Link to="/">Return Home</Link>
       </Layout>
     </>
   )

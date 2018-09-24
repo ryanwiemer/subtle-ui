@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
-import '../styles/global'
+import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
 import Footer from '../components/Footer'
 
@@ -23,6 +23,7 @@ class Template extends React.Component {
             <Footer />
           </>
         </ThemeProvider>
+        <GlobalStyle />
       </div>
     )
   }
