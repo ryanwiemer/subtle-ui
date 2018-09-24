@@ -98,8 +98,10 @@ const Container = styled.div`
       flex: 0 0 50%;
     }
   }
-  .token.operator {
+  .token.operator,
+  .token.entity {
     background: none;
+    cursor: inherit;
   }
 `
 
