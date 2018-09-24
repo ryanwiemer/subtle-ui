@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { transform } from 'babel-standalone'
+import 'prismjs/themes/prism.css'
 
 const Label = styled.span`
   display: none;
@@ -97,74 +98,8 @@ const Container = styled.div`
       flex: 0 0 50%;
     }
   }
-
-  .token.comment,
-  .token.prolog,
-  .token.doctype,
-  .token.cdata {
-    opacity: 0.3;
-  }
-
-  .token.punctuation {
-    opacity: 0.7;
-  }
-
-  .namespace {
-    opacity: 0.7;
-  }
-
-  .token.property,
-  .token.tag,
-  .token.boolean,
-  .token.number,
-  .token.constant,
-  .token.symbol {
-    color: #905;
-  }
-
-  .token.selector,
-  .token.attr-name,
-  .token.string,
-  .token.char,
-  .token.builtin,
-  .token.inserted {
-    color: #690;
-  }
-
-  .token.operator,
-  .token.entity,
-  .token.url,
-  .language-css .token.string,
-  .style .token.string,
-  .token.variable {
-    color: #9a6e3a;
-  }
-
-  .token.atrule,
-  .token.attr-value,
-  .token.keyword {
-    color: #07a;
-  }
-
-  .token.regex,
-  .token.important {
-    color: #e90;
-  }
-
-  .token.important,
-  .token.bold {
-    font-weight: bold;
-  }
-  .token.italic {
-    font-style: italic;
-  }
-
-  .token.entity {
-    cursor: help;
-  }
-
-  .token.deleted {
-    color: red;
+  .token.operator {
+    background: none;
   }
 `
 

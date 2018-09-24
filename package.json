@@ -5,7 +5,7 @@
   "repository": "https://github.com/ryanwiemer/subtle-ui",
   "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
   "dependencies": {
-    "@mdx-js/mdx": "^0.15.3",
+    "@mdx-js/mdx": "^0.15.4",
     "@mdx-js/tag": "^0.15.0",
     "babel-plugin-styled-components": "^1.7.1",
     "babel-standalone": "^6.26.0",
@@ -17,6 +17,7 @@
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-styled-components": "^3.0.0",
     "gatsby-source-filesystem": "^2.0.1",
+    "prismjs": "^1.15.0",
     "react": "^16.5.2",
     "react-confetti": "^2.3.0",
     "react-dom": "^16.5.2",
