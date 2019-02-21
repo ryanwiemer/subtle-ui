@@ -94,6 +94,9 @@ const Container = styled.div`
     &:focus {
       outline: none;
     }
+    ::-webkit-scrollbar {
+      display: none;
+    }
     @media screen and (min-width: ${props => props.theme.responsive.small}) {
       flex: 0 0 50%;
     }

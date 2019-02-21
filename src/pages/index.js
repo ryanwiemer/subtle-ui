@@ -6,7 +6,7 @@ import CardList from '../components/CardList'
 import Intro from '../components/Intro'
 import SEO from '../components/SEO'
 
-export default ({ data }) => {
+const IndexPage = ({ data }) => {
   const examples = data.allMdx.edges
 
   return (
@@ -46,3 +46,5 @@ export const query = graphql`
     }
   }
 `
+
+export default IndexPage

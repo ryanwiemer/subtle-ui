@@ -55,7 +55,7 @@ const Button = styled.a`
   }
 `
 
-export default () => {
+const Footer = () => {
   return (
     <>
       <Wrapper>
@@ -94,3 +94,5 @@ export default () => {
     </>
   )
 }
+
+export default Footer

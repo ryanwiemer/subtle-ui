@@ -21,7 +21,7 @@ const Button = styled(Link)`
   }
 `
 
-const BackButton = props => {
+const BackButton = () => {
   return (
     <Button to="/">
       <span>&larr;</span> All Examples

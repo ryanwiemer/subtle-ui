@@ -4,7 +4,7 @@ import SEO from '../components/SEO'
 import Title from '../components/Title'
 import { Link } from 'gatsby'
 
-export default () => {
+const ErrorPage = () => {
   return (
     <>
       <SEO />
@@ -15,3 +15,5 @@ export default () => {
     </>
   )
 }
+
+export default ErrorPage

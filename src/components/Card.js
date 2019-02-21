@@ -52,7 +52,7 @@ const Title = styled.h2`
 const Card = props => {
   return (
     <Example>
-      <Link to={`/${props.slug}/`}>
+      <Link to={`${props.slug}`}>
         <Title>{props.title}</Title>
       </Link>
     </Example>
