@@ -1,5 +1,4 @@
 const { createFilePath } = require('gatsby-source-filesystem')
-const componentWithMDXScope = require('gatsby-mdx/component-with-mdx-scope')
 const path = require('path')
 
 exports.createPages = ({ graphql, actions }) => {
@@ -32,21 +31,14 @@ exports.createPages = ({ graphql, actions }) => {
           console.log(result.errors)
           reject(result.errors)
         }
-
         const posts = result.data.allMdx.edges
-
         posts.forEach(({ node }, index) => {
           const previous =
             index === posts.length - 1 ? null : posts[index + 1].node
           const next = index === 0 ? null : posts[index - 1].node
-
           createPage({
             path: node.fields.slug,
-            component: componentWithMDXScope(
-              path.resolve('./src/templates/post.js'),
-              node.code.scope,
-              __dirname
-            ),
+            component: path.resolve('./src/templates/post.js'),
             context: {
               slug: node.fields.slug,
               id: node.id,
@@ -62,7 +54,6 @@ exports.createPages = ({ graphql, actions }) => {
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-
   if (node.internal.type === `Mdx`) {
     const value = createFilePath({ node, getNode })
     createNodeField({
