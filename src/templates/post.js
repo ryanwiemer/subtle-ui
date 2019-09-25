@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import MDXRenderer from 'gatsby-mdx/mdx-renderer'
-import { MDXProvider } from '@mdx-js/tag'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { MDXProvider } from '@mdx-js/react'
 import Layout from '../components/Layout'
 import CodeEditor from '../components/CodeEditor'
 import Title from '../components/Title'
@@ -10,37 +10,27 @@ import BackButton from '../components/BackButton'
 import PostLinks from '../components/PostLinks'
 import { Markdown } from '../components/Markdown'
 import SEO from '../components/SEO'
+const PostTemplate = ({ data: { mdx }, pageContext, location }) => {
+  return (
+    <>
+      <SEO title={mdx.frontmatter.title} url={mdx.fields.slug} />
 
-class PostTemplate extends React.Component {
-  render() {
-    const { data } = this.props
-    const { previous, next } = this.props.pageContext
-
-    return (
-      <>
-        <SEO title={data.mdx.frontmatter.title} url={data.mdx.fields.slug} />
+      <Layout location={location}>
+        <BackButton />
+        <Title>{mdx.frontmatter.title}</Title>
+        <PostLinks previous={pageContext.previous} next={pageContext.next} />
+        <Author name={mdx.frontmatter.author} github={mdx.frontmatter.github} />
         <MDXProvider
           components={{
             ...Markdown,
             code: CodeEditor,
           }}
         >
-          <Layout location={this.props.location}>
-            <BackButton />
-            <Title>{data.mdx.frontmatter.title}</Title>
-            <PostLinks previous={previous} next={next} />
-            <Author
-              name={data.mdx.frontmatter.author}
-              github={data.mdx.frontmatter.github}
-            />
-            {typeof window !== `undefined` && (
-              <MDXRenderer>{data.mdx.code.body}</MDXRenderer>
-            )}
-          </Layout>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
         </MDXProvider>
-      </>
-    )
-  }
+      </Layout>
+    </>
+  )
 }
 
 export const pageQuery = graphql`
@@ -50,10 +40,7 @@ export const pageQuery = graphql`
       fields {
         slug
       }
-      code {
-        body
-        scope
-      }
+      body
       frontmatter {
         title
         author

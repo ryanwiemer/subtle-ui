@@ -9,7 +9,7 @@ A collection of clever yet understated user interactions found on the web. This 
 
 ```
 title: My Cool Example
-date: 2018-08-31
+date: 2019-09-24
 author: John Doe
 github: johndoe123
 ```
@@ -27,6 +27,5 @@ github: johndoe123
 
 ## Development
 
-`yarn run dev` - See a local version of the website on http://localhost:8000
-
-`yarn run prod` - See a production version of the website on http://localhost:9000
+`yarn develop` - See a local version of the website on http://localhost:8000
+`yarn build && yarn serve` - See a production version of the website on http://localhost:9000

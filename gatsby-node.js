@@ -18,9 +18,6 @@ exports.createPages = ({ graphql, actions }) => {
                   fields {
                     slug
                   }
-                  code {
-                    scope
-                  }
                 }
               }
             }
