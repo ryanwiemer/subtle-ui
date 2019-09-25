@@ -55,10 +55,6 @@ export const InlineCode = styled.code`
   border-radius: 2px;
 `
 
-export const Code = styled.code`
-  background: green;
-`
-
 export const Q = styled.blockquote`
   color: gray;
   border-left: 4px solid ${props => props.theme.colors.tertiary};
@@ -113,7 +109,6 @@ export const Markdown = {
   h5: props => <H5 {...props} />,
   p: props => <P {...props} />,
   a: props => <A {...props} />,
-  code: props => <Code {...props} />,
   inlineCode: props => <InlineCode {...props} />,
   blockquote: props => <Q {...props} />,
   strong: props => <Strong {...props} />,

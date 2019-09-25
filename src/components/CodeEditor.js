@@ -2,7 +2,73 @@ import React from 'react'
 import styled from 'styled-components'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { transform } from 'babel-standalone'
-import 'prismjs/themes/prism.css'
+import prism from '../styles/prism'
+
+const Wrapper = styled.div`
+  margin: 0 auto 2rem;
+`
+
+const Container = styled.div`
+  position: relative;
+  border: 4px solid ${props => props.theme.colors.tertiary};
+  border-radius: 2px;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  h3 {
+    font-weight: default;
+  }
+`
+
+const Preview = styled(LivePreview)`
+  background: white;
+  position: relative;
+  padding: 1rem;
+  display: block;
+  height: auto;
+  flex-basis: 50%;
+  white-space: normal;
+  overflow: hidden;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    flex: 0 0 50%;
+    min-height: 10rem;
+  }
+`
+
+const Editor = styled(LiveEditor)`
+  font-family: monospace;
+  background: ${props => props.theme.colors.base};
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  font-size: 1.05em;
+  padding: 0.5rem;
+  line-height: 1.2em;
+  tab-size: 4;
+  hyphens: none;
+  overflow: scroll !important;
+  textarea:focus {
+    outline: none;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    flex: 0 0 50%;
+  }
+`
+
+const Error = styled(LiveError)`
+  background: #f68987;
+  padding: 1rem;
+  width: 100%;
+  overflow: scroll;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+`
 
 const Label = styled.span`
   display: none;
@@ -34,80 +100,6 @@ const Label = styled.span`
   }
 `
 
-const LiveWrapper = styled.div`
-  position: relative;
-  border: 4px solid ${props => props.theme.colors.tertiary};
-  border-radius: 2px;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    display: flex;
-    flex-flow: row wrap;
-  }
-  h3 {
-    font-weight: default;
-  }
-`
-
-const Container = styled.div`
-  margin: 0 0 2rem 0;
-
-  /* Error Styling */
-  .react-live-error {
-    background: #f68987;
-    padding: 1rem;
-    width: 100%;
-    overflow: scroll;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-  }
-
-  /* Preview Styling */
-  .react-live-preview {
-    background: white;
-    position: relative;
-    padding: 1rem;
-    display: block;
-    height: auto;
-    flex-basis: 50%;
-    white-space: normal;
-    overflow: hidden;
-    @media screen and (min-width: ${props => props.theme.responsive.small}) {
-      flex: 0 0 50%;
-      min-height: 10rem;
-    }
-  }
-
-  /* Prism Code Editor Styling */
-  .prism-code {
-    font-family: monospace;
-    background: ${props => props.theme.colors.tertiary};
-    overflow: scroll;
-    direction: ltr;
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    font-size: 1.05em;
-    padding: 0.5rem;
-    line-height: 1.2em;
-    tab-size: 4;
-    hyphens: none;
-    &:focus {
-      outline: none;
-    }
-    ::-webkit-scrollbar {
-      display: none;
-    }
-    @media screen and (min-width: ${props => props.theme.responsive.small}) {
-      flex: 0 0 50%;
-    }
-  }
-  .token.operator,
-  .token.entity {
-    background: none;
-    cursor: inherit;
-  }
-`
-
 const scope = { styled }
 
 const transformCode = code => {
@@ -123,22 +115,22 @@ const transformCode = code => {
 }
 
 const CodeEditor = ({ children, ...props }) => (
-  <Container>
+  <Wrapper>
     <LiveProvider
       noInline
       code={children}
       scope={scope}
-      mountStylesheet={false}
       transformCode={transformCode}
+      theme={prism}
     >
-      <LiveWrapper>
-        <LiveEditor />
-        <LivePreview />
+      <Container>
+        <Editor />
+        <Preview />
         <Label>Demo</Label>
-      </LiveWrapper>
-      <LiveError />
+      </Container>
+      <Error />
     </LiveProvider>
-  </Container>
+  </Wrapper>
 )
 
 export default CodeEditor
