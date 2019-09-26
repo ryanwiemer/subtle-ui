@@ -12,7 +12,8 @@ class Hidden extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      title: 'Hidden Browser Tab - Subtle UI', // Use a static title or grab document.title
+      // Use a static title or grab document.title
+      title: 'Hidden Browser Tab - Subtle UI',
       hiddenTitle: 'Come Back...'
     }
   }

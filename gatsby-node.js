@@ -56,8 +56,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
   const posts = result.data.allMdx.edges
   posts.forEach(({ node: post }, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].post
-    const next = index === 0 ? null : posts[index - 1].post
+    const previous = index === posts.length - 1 ? null : posts[index + 1].node
+    const next = index === 0 ? null : posts[index - 1].node
     createPage({
       path: post.fields.slug,
       component: path.resolve('./src/templates/post.js'),

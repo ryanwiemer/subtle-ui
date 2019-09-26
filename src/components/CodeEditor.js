@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { transform } from 'babel-standalone'
@@ -100,7 +100,7 @@ const Label = styled.span`
   }
 `
 
-const scope = { styled }
+const scope = { styled, useState, useEffect }
 
 const transformCode = code => {
   try {
