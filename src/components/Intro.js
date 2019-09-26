@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Confetti from 'react-confetti'
 
@@ -57,68 +57,49 @@ const Button = styled.a`
   }
 `
 
-const words = ['simple', 'typical', 'boring']
+const Intro = () => {
+  const words = ['simple', 'typical', 'boring']
+  const [party, setParty] = useState(false)
+  const [count, setCount] = useState(0)
 
-class Intro extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      party: false,
-      buttonText: words[0],
-      count: 1,
-    }
-  }
-
-  dropConfetti = () => {
-    this.setState({
-      party: true,
-    })
+  const dropConfetti = () => {
+    setParty(true)
     setTimeout(() => {
-      this.setState({
-        party: false,
-      })
+      setParty(false)
     }, 2000)
   }
 
-  changeText = () => {
-    this.setState({
-      count: this.state.count + 1,
-      buttonText: words[this.state.count],
-    })
-    if (this.state.count === words.length) {
-      this.setState({
-        count: 1,
-        buttonText: words[0],
-      })
+  const changeText = () => {
+    setCount(count + 1)
+    if (count === words.length - 1) {
+      setCount(0)
     }
   }
 
-  render() {
-    return (
-      <Wrapper>
-        <Title>Subtle UI</Title>
-        <Text>
-          A collection of clever yet understated user interactions found on the
-          web. These examples live in the sweet spot between a{' '}
-          <Button onClick={this.changeText}>{this.state.buttonText}</Button>{' '}
-          interaction and something that feels too{' '}
-          <Button onClick={this.dropConfetti}>
-            <span>🎉</span>
-            gimicky
-          </Button>
-          .
-        </Text>
-        {typeof window !== `undefined` && (
-          <Confetti
-            width={window.innerWidth}
-            height={window.innerHeight}
-            colors={['#121212', '#fafafa', '#e8e8e8', '#f5ce46']}
-            numberOfPieces={this.state.party ? '200' : '0'}
-          />
-        )}
-      </Wrapper>
-    )
-  }
+  return (
+    <Wrapper>
+      <Title>Subtle UI</Title>
+      <Text>
+        A collection of clever yet understated user interactions found on the
+        web. These examples live in the sweet spot between a{' '}
+        <Button onClick={changeText}>{words[count]}</Button> interaction and
+        something that feels too{' '}
+        <Button onClick={dropConfetti}>
+          <span>🎉</span>
+          gimicky
+        </Button>
+        .
+      </Text>
+      {typeof window !== `undefined` && (
+        <Confetti
+          width={window.innerWidth}
+          height={window.innerHeight}
+          colors={['#121212', '#fafafa', '#e8e8e8', '#f5ce46']}
+          numberOfPieces={party ? '200' : '0'}
+        />
+      )}
+    </Wrapper>
+  )
 }
 
 export default Intro
