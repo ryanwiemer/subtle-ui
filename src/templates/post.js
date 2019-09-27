@@ -29,6 +29,7 @@ const PostTemplate = ({ pageContext, location }) => {
         title={post.frontmatter.title}
         url={post.fields.slug}
         image={ogImage}
+        description={`${post.frontmatter.title} is an example of a subtle user interaction found on the web.`}
       />
       <Layout location={location}>
         <Container>

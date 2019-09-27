@@ -10,8 +10,6 @@ import Container from '../components/Container'
 const IndexPage = ({ data }) => {
   const examples = data.allMdx.edges
 
-  console.log(examples[0])
-
   return (
     <>
       <SEO />

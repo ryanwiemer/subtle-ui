@@ -19,7 +19,10 @@ const SEO = props => {
       <title>
         {props.title ? `${props.title} - ${defaultTitle}` : defaultTitle}
       </title>
-      <meta name="description" content={defaultDescription} />
+      <meta
+        name="description"
+        content={props.description || defaultDescription}
+      />
       <meta
         property="og:url"
         content={props.url ? defaultURL + props.url : defaultURL}
@@ -30,10 +33,14 @@ const SEO = props => {
           props.title ? `${props.title} - ${defaultTitle}` : defaultTitle
         }
       />
-      <meta property="og:image" content={props.image || defaultImage} />
-      <meta property="og:image:width" content="600" />
-      <meta property="og:image:height" content="600" />
-      <meta property="og:description" content={defaultDescription} />
+      <meta
+        property="og:image"
+        content={defaultURL + props.image || defaultImage}
+      />
+      <meta
+        property="og:description"
+        content={props.description || defaultDescription}
+      />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content="@ryanwiemer" />
       <meta
@@ -42,8 +49,14 @@ const SEO = props => {
           props.title ? `${props.title} - ${defaultTitle}` : defaultTitle
         }
       />
-      <meta name="twitter:image" content={props.image || defaultImage} />
-      <meta name="twitter:description" content={defaultDescription} />
+      <meta
+        name="twitter:image"
+        content={defaultURL + props.image || defaultImage}
+      />
+      <meta
+        name="twitter:description"
+        content={props.description || defaultDescription}
+      />
     </Helmet>
   )
 }
