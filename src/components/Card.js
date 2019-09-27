@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
 
-const Example = styled.li`
+const Wrapper = styled.li`
   position: relative;
   margin: 0 0 1em 0;
   width: 100%;
@@ -17,45 +18,73 @@ const Example = styled.li`
   a {
     position: relative;
     background: white;
-    border: 2px solid ${props => props.theme.colors.tertiary};
+    border: 1px solid ${props => props.theme.colors.base};
     border-radius: 2px;
     transition: all 0.2s;
     display: flex;
     flex-flow: column;
-    padding: 3em;
     height: 100%;
     width: 100%;
     color: ${props => props.theme.colors.base};
     text-decoration: none;
     &:hover {
-      background: ${props => props.theme.colors.base};
-      border-color: ${props => props.theme.colors.base};
-      color: white;
-      box-shadow: 0 10px 30px rgba(34, 34, 34, 0.25);
+      background: ${props => props.theme.colors.highlight};
+      box-shadow: 0 5px 15px rgba(34, 34, 34, 0.2);
     }
     @media (hover: none) {
-      background: white;
-      color: ${props => props.theme.colors.base};
-      border-color: ${props => props.theme.colors.tertiary};
-      box-shadow: none;
+      background: none!;
+      box-shadow: none !important;
     }
   }
 `
 
+const Cover = styled(Img)`
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+`
+
 const Title = styled.h2`
-  font-size: 1.5em;
+  border-top: 1px solid ${props => props.theme.colors.base};
+  margin-top: auto;
+  width: 100%;
+  align-self: flex-end;
+  padding: 1rem;
+  background: ${props => props.theme.colors.tertiary};
+  font-size: 1.25em;
   line-height: 1.2;
   font-weight: bold;
   text-transform: capitalize;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    font-size: 1.5em;
+  }
+`
+
+const Placeholder = styled.div`
+  background: white;
+  padding-bottom: 66.67%;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 `
 
 const Card = props => {
   return (
-    <Example>
+    <Wrapper>
       <Link to={`${props.slug}`}>
+        {props.image && (
+          <Cover
+            sizes={{
+              ...props.image.childImageSharp.fluid,
+              aspectRatio: 1.5 / 1,
+            }}
+            backgroundColor="#ffffff"
+          />
+        )}
+        {props.image === null ? <Placeholder /> : ''}
         <Title>{props.title}</Title>
       </Link>
-    </Example>
+    </Wrapper>
   )
 }
 

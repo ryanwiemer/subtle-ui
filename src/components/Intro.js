@@ -23,6 +23,7 @@ const Text = styled.p`
 `
 
 const Button = styled.a`
+  margin: 0 0 0.1rem 0;
   text-decoration: none;
   display: inline-block;
   background: white;
@@ -43,7 +44,8 @@ const Button = styled.a`
     transition: 0.3s ease-out;
   }
   &:hover {
-    box-shadow: 0 5px 15px rgba(34, 34, 34, 0.25);
+    background: ${props => props.theme.colors.secondary};
+    box-shadow: 0 5px 15px rgba(34, 34, 34, 0.1);
     span {
       transform: rotateZ(360deg);
     }

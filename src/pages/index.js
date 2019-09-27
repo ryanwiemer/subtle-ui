@@ -20,6 +20,7 @@ const IndexPage = ({ data }) => {
               key={example.id}
               title={example.frontmatter.title}
               slug={example.fields.slug}
+              image={example.frontmatter.image}
             />
           ))}
         </CardList>
@@ -40,6 +41,16 @@ export const query = graphql`
           frontmatter {
             date(formatString: "DD MMMM, YYYY")
             title
+            image {
+              childImageSharp {
+                fluid(maxWidth: 1000) {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                }
+                ogimg: resize(width: 1000) {
+                  src
+                }
+              }
+            }
           }
         }
       }

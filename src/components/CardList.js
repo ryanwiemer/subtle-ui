@@ -21,6 +21,7 @@ const List = styled.ul`
     padding: 0.5rem;
     border-radius: 2px;
     background: ${props => props.theme.colors.highlight};
+    border: 1px solid white;
   }
 `
 

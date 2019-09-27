@@ -3,6 +3,7 @@ title: Hidden Browser Tab
 date: 2018-09-06
 author: Ryan Wiemer
 github: ryanwiemer
+image: images/hidden-browser-tab.png
 ---
 
 > **Note**: This example uses [React](https://reactjs.org/) with ES6 syntax.

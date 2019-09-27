@@ -3,6 +3,7 @@ title: Scroll Loop
 date: 2018-09-03
 author: Ryan Wiemer
 github: ryanwiemer
+image: images/scroll-loop.png
 ---
 
 > **Note**: This example uses [React](https://reactjs.org/) with ES6 syntax and [Styled Components](https://www.styled-components.com/).

@@ -22,7 +22,7 @@ const Container = styled.div`
 const Preview = styled(LivePreview)`
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  border: 4px solid ${props => props.theme.colors.tertiary};
+  border: 2px solid ${props => props.theme.colors.base};
   background: white;
   position: relative;
   padding: 1rem;
@@ -67,6 +67,7 @@ const Error = styled(LiveError)`
 `
 
 const Label = styled.span`
+  color: white;
   border-bottom-right-radius: 2px;
   display: none;
   position: absolute;
@@ -75,7 +76,7 @@ const Label = styled.span`
   right: 0;
   padding: 0.5em 0.5em 0.5em 1.25em;
   border-top-left-radius: 2px;
-  background: ${props => props.theme.colors.tertiary};
+  background: ${props => props.theme.colors.base};
   &::before {
     content: '';
     position: absolute;

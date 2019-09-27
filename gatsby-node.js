@@ -10,6 +10,7 @@ exports.sourceNodes = ({ actions, schema }) => {
       author: String
       github: String
       date: Date @dateformat
+      image: File @fileByRelativePath
     }
     type Fields @infer {
       slug: String

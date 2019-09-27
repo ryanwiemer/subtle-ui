@@ -3,6 +3,7 @@ title: Click & Hold To Zoom
 date: 2018-08-31
 author: Ryan Wiemer
 github: ryanwiemer
+image: images/click-and-hold-to-zoom.png
 ---
 
 > **Note**: This example uses [React](https://reactjs.org/) with hooks and ES6 syntax.
