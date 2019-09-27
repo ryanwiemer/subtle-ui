@@ -1,33 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Confetti from 'react-confetti'
+import Featured from './Featured'
 
 const Wrapper = styled.div`
-  display: inline-block;
-  margin: 0 0 2rem 0;
-  padding: 1em 0;
-  max-width: 600px;
-`
-
-const Title = styled.h1`
-  font-size: 2em;
-  font-weight: bold;
-  margin: 0 0 1rem 0;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    font-size: 3em;
+  background: ${props => props.theme.colors.secondary};
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    min-height: 85vh;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
   }
 `
 
-const Text = styled.p`
-  line-height: 1.5;
+const Container = styled.div`
+  max-width: ${props => props.theme.sizes.maxWidth};
+  width: 100%;
+  padding: 3em 1.5em;
+  margin: 0 auto 1rem;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    display: flex;
+    justify-content: space-between;
+  }
+`
+
+const Title = styled.h1`
+  text-transform: uppercase;
+  font-size: 2.5em;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    font-size: 3.25em;
+  }
+`
+
+const Text = styled.div`
+  margin: 0 0 2rem;
+  p {
+    line-height: 1.5;
+  }
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    flex: 0 0 49%;
+    margin: 0;
+  }
 `
 
 const Button = styled.a`
+  margin: 0 0 0.1rem 0;
   text-decoration: none;
   display: inline-block;
   background: white;
   border: 1px solid ${props => props.theme.colors.tertiary};
-  border-radius: 2px;
+  border-radius: 3px;
   padding: 0.25rem 0.5rem;
   line-height: 1;
   transition: all 0.2s;
@@ -43,7 +68,7 @@ const Button = styled.a`
     transition: 0.3s ease-out;
   }
   &:hover {
-    box-shadow: 0 5px 15px rgba(34, 34, 34, 0.25);
+    box-shadow: 0 5px 15px rgba(34, 34, 34, 0.1);
     span {
       transform: rotateZ(360deg);
     }
@@ -57,68 +82,58 @@ const Button = styled.a`
   }
 `
 
-const words = ['simple', 'typical', 'boring']
+const Intro = props => {
+  const words = ['simple', 'typical', 'boring']
+  const [party, setParty] = useState(false)
+  const [count, setCount] = useState(0)
 
-class Intro extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      party: false,
-      buttonText: words[0],
-      count: 1,
-    }
-  }
-
-  dropConfetti = () => {
-    this.setState({
-      party: true,
-    })
+  const dropConfetti = () => {
+    setParty(true)
     setTimeout(() => {
-      this.setState({
-        party: false,
-      })
+      setParty(false)
     }, 2000)
   }
 
-  changeText = () => {
-    this.setState({
-      count: this.state.count + 1,
-      buttonText: words[this.state.count],
-    })
-    if (this.state.count === words.length) {
-      this.setState({
-        count: 1,
-        buttonText: words[0],
-      })
+  const changeText = () => {
+    setCount(count + 1)
+    if (count === words.length - 1) {
+      setCount(0)
     }
   }
 
-  render() {
-    return (
-      <Wrapper>
-        <Title>Subtle UI</Title>
+  return (
+    <Wrapper>
+      <Container>
         <Text>
-          A collection of clever yet understated user interactions found on the
-          web. These examples live in the sweet spot between a{' '}
-          <Button onClick={this.changeText}>{this.state.buttonText}</Button>{' '}
-          interaction and something that feels too{' '}
-          <Button onClick={this.dropConfetti}>
-            <span>🎉</span>
-            gimicky
-          </Button>
-          .
+          <Title>Subtle UI</Title>
+          <p>
+            A collection of clever yet understated user interactions found on
+            the web. These examples live in the sweet spot between a{' '}
+            <Button onClick={changeText}>{words[count]}</Button> interaction and
+            something that feels too{' '}
+            <Button onClick={dropConfetti}>
+              <span>🎉</span>
+              gimicky
+            </Button>
+            .
+          </p>
+          {typeof window !== `undefined` && (
+            <Confetti
+              width={window.innerWidth}
+              height={window.innerHeight}
+              colors={['#121212', '#fafafa', '#e8e8e8', '#f5ce46']}
+              numberOfPieces={party ? '200' : '0'}
+            />
+          )}
         </Text>
-        {typeof window !== `undefined` && (
-          <Confetti
-            width={window.innerWidth}
-            height={window.innerHeight}
-            colors={['#121212', '#fafafa', '#e8e8e8', '#f5ce46']}
-            numberOfPieces={this.state.party ? '200' : '0'}
-          />
-        )}
-      </Wrapper>
-    )
-  }
+        <Featured
+          title={props.featured.frontmatter.title}
+          image={props.featured.frontmatter.image}
+          slug={props.featured.fields.slug}
+        />
+      </Container>
+    </Wrapper>
+  )
 }
 
 export default Intro

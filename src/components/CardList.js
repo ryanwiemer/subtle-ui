@@ -10,22 +10,21 @@ const List = styled.ul`
     content: '';
     flex: 0 0 32%;
   }
-  li:first-child a::after {
-    content: 'new';
-    color: ${props => props.theme.colors.base};
-    text-transform: capitalize;
-    font-weight: bold;
-    position: absolute;
-    top: -0.75rem;
-    right: -0.75rem;
-    padding: 0.5rem;
-    border-radius: 2px;
-    background: ${props => props.theme.colors.highlight};
-  }
+`
+
+const Title = styled.h2`
+  font-size: 1.75em;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
 `
 
 const CardList = props => {
-  return <List>{props.children}</List>
+  return (
+    <>
+      <Title>More Examples</Title>
+      <List>{props.children}</List>
+    </>
+  )
 }
 
 export default CardList

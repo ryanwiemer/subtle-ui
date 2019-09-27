@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { transform } from 'babel-standalone'
-import prism from '../styles/prism'
+import theme from 'prism-react-renderer/themes/oceanicNext'
 
 const Wrapper = styled.div`
   margin: 0 auto 2rem;
@@ -10,8 +10,6 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   position: relative;
-  border: 4px solid ${props => props.theme.colors.tertiary};
-  border-radius: 2px;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     display: flex;
     flex-flow: row wrap;
@@ -22,9 +20,12 @@ const Container = styled.div`
 `
 
 const Preview = styled(LivePreview)`
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border: 2px solid ${props => props.theme.colors.base};
   background: white;
   position: relative;
-  padding: 1rem;
+  padding: 1.5rem;
   display: block;
   height: auto;
   flex-basis: 50%;
@@ -33,23 +34,21 @@ const Preview = styled(LivePreview)`
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     flex: 0 0 50%;
     min-height: 10rem;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 0;
   }
 `
 
 const Editor = styled(LiveEditor)`
-  font-family: monospace;
-  background: ${props => props.theme.colors.base};
-  direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
+  padding: 1rem !important;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
   font-size: 1.05em;
-  padding: 0.5rem;
   line-height: 1.2em;
-  tab-size: 4;
-  hyphens: none;
-  overflow: scroll !important;
+  textarea {
+    padding: 1.5rem !important;
+    background: ${props => props.theme.colors.base} !important;
+  }
   textarea:focus {
     outline: none;
   }
@@ -58,6 +57,8 @@ const Editor = styled(LiveEditor)`
   }
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     flex: 0 0 50%;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 3px;
   }
 `
 
@@ -66,19 +67,21 @@ const Error = styled(LiveError)`
   padding: 1rem;
   width: 100%;
   overflow: scroll;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 `
 
 const Label = styled.span`
+  color: white;
+  border-bottom-right-radius: 3px;
   display: none;
   position: absolute;
   font-size: 0.95em;
-  bottom: -4px;
+  bottom: 0;
   right: 0;
   padding: 0.5em 0.5em 0.5em 1.25em;
-  border-top-left-radius: 2px;
-  background: ${props => props.theme.colors.tertiary};
+  border-top-left-radius: 3px;
+  background: ${props => props.theme.colors.base};
   &::before {
     content: '';
     position: absolute;
@@ -100,7 +103,7 @@ const Label = styled.span`
   }
 `
 
-const scope = { styled }
+const scope = { styled, useState, useEffect }
 
 const transformCode = code => {
   try {
@@ -121,7 +124,7 @@ const CodeEditor = ({ children, ...props }) => (
       code={children}
       scope={scope}
       transformCode={transformCode}
-      theme={prism}
+      theme={theme}
     >
       <Container>
         <Editor />

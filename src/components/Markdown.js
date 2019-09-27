@@ -52,7 +52,7 @@ export const A = styled.a`
 export const InlineCode = styled.code`
   background: ${props => props.theme.colors.tertiary};
   padding: 0.25em;
-  border-radius: 2px;
+  border-radius: 3px;
 `
 
 export const Q = styled.blockquote`

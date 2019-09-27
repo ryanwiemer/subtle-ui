@@ -1,51 +1,80 @@
 const { createFilePath } = require('gatsby-source-filesystem')
 const path = require('path')
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
-  return new Promise((resolve, reject) => {
-    resolve(
-      graphql(
-        `
-          {
-            allMdx(
-              sort: { fields: [frontmatter___date], order: ASC }
-              limit: 1000
-            ) {
-              edges {
-                node {
-                  id
-                  fields {
-                    slug
-                  }
+// Schema Customization
+exports.sourceNodes = ({ actions, schema }) => {
+  const { createTypes } = actions
+  createTypes(`
+    type Frontmatter @infer {
+      title: String
+      author: String
+      github: String
+      date: Date @dateformat
+      image: File @fileByRelativePath
+    }
+    type Fields @infer {
+      slug: String
+    }
+    type Mdx implements Node @infer {
+      frontmatter: Frontmatter
+      fields: Fields
+    }
+  `)
+}
+
+// Data query
+const query = `
+  {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: ASC }
+      limit: 1000
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          body
+          frontmatter {
+            title
+            author
+            github
+            date(formatString: "MMMM DD, YYYY")
+            image {
+              childImageSharp {
+                ogimg: resize(width: 1000) {
+                  src
                 }
               }
             }
           }
-        `
-      ).then(result => {
-        if (result.errors) {
-          console.log(result.errors)
-          reject(result.errors)
         }
-        const posts = result.data.allMdx.edges
-        posts.forEach(({ node }, index) => {
-          const previous =
-            index === posts.length - 1 ? null : posts[index + 1].node
-          const next = index === 0 ? null : posts[index - 1].node
-          createPage({
-            path: node.fields.slug,
-            component: path.resolve('./src/templates/post.js'),
-            context: {
-              slug: node.fields.slug,
-              id: node.id,
-              previous,
-              next,
-            },
-          })
-        })
-      })
-    )
+      }
+    }
+  }
+`
+
+// Create Pages
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions
+  const result = await graphql(query)
+  if (result.errors) {
+    reporter.panic(result.errors)
+  }
+  const posts = result.data.allMdx.edges
+  posts.forEach(({ node: post }, index) => {
+    const previous = index === posts.length - 1 ? null : posts[index + 1].node
+    const next = index === 0 ? null : posts[index - 1].node
+    createPage({
+      path: post.fields.slug,
+      component: path.resolve('./src/templates/post.js'),
+      context: {
+        post,
+        previous,
+        next,
+      },
+    })
   })
 }
 

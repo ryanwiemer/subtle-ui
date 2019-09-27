@@ -40,7 +40,7 @@ const Button = styled.a`
   font-weight: bold;
   padding: 1em;
   background: ${props => props.theme.colors.highlight};
-  border-radius: 2px;
+  border-radius: 3px;
   transition: all 0.2s;
   svg {
     margin: 0 0 0 0.5rem;

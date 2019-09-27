@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   img {
     width: 32px;
     height: 32px;
-    border-radius: 2px;
+    border-radius: 3px;
     margin: 0 0.5rem 0 0;
   }
 `

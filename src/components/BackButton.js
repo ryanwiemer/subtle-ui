@@ -10,7 +10,7 @@ const Button = styled(Link)`
   padding: 0.5em;
   font-weight: bold;
   text-transform: capitalize;
-  border-radius: 2px;
+  border-radius: 3px;
   text-decoration: none;
   transition: all 0.2s;
   &:hover {

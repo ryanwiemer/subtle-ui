@@ -5,24 +5,30 @@ import Card from '../components/Card'
 import CardList from '../components/CardList'
 import Intro from '../components/Intro'
 import SEO from '../components/SEO'
+import Container from '../components/Container'
 
 const IndexPage = ({ data }) => {
   const examples = data.allMdx.edges
+
+  console.log(examples[0])
 
   return (
     <>
       <SEO />
       <Layout>
-        <Intro />
-        <CardList>
-          {examples.map(({ node: example }) => (
-            <Card
-              key={example.id}
-              title={example.frontmatter.title}
-              slug={example.fields.slug}
-            />
-          ))}
-        </CardList>
+        <Intro featured={examples[0].node} />
+        <Container>
+          <CardList>
+            {examples.slice(1).map(({ node: example }) => (
+              <Card
+                key={example.id}
+                title={example.frontmatter.title}
+                slug={example.fields.slug}
+                image={example.frontmatter.image}
+              />
+            ))}
+          </CardList>
+        </Container>
       </Layout>
     </>
   )
@@ -40,6 +46,13 @@ export const query = graphql`
           frontmatter {
             date(formatString: "DD MMMM, YYYY")
             title
+            image {
+              childImageSharp {
+                fluid(maxWidth: 1000) {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                }
+              }
+            }
           }
         }
       }

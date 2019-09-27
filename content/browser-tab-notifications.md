@@ -3,6 +3,7 @@ title: Browser Tab Notifications
 date: 2018-09-07
 author: Ryan Wiemer
 github: ryanwiemer
+image: images/browser-tab-notifications.png
 ---
 
 > **Note**: This example uses [React](https://reactjs.org/) with ES6 syntax.
@@ -12,7 +13,8 @@ class Notifications extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      title: 'Browser Tab Notifications - Subtle UI', // Use a static title or grab document.title
+      // Use a static title or grab document.title
+      title: 'Browser Tab Notifications - Subtle UI',
       favicon: null,
       notificationFavicon: null,
       notificationCount: 0
