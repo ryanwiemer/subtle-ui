@@ -1,12 +1,28 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Confetti from 'react-confetti'
+import Featured from './Featured'
 
 const Wrapper = styled.div`
-  display: inline-block;
-  margin: 0 0 2rem 0;
-  padding: 1em 0;
-  max-width: 600px;
+  background: ${props => props.theme.colors.secondary};
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    min-height: 85vh;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+`
+
+const Container = styled.div`
+  max-width: ${props => props.theme.sizes.maxWidth};
+  width: 100%;
+  padding: 3em 1.5em;
+  margin: 0 auto 1rem;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    display: flex;
+    justify-content: space-between;
+  }
 `
 
 const Title = styled.h1`
@@ -18,8 +34,15 @@ const Title = styled.h1`
   }
 `
 
-const Text = styled.p`
-  line-height: 1.5;
+const Text = styled.div`
+  margin: 0 0 2rem;
+  p {
+    line-height: 1.5;
+  }
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    flex: 0 0 49%;
+    margin: 0;
+  }
 `
 
 const Button = styled.a`
@@ -44,7 +67,6 @@ const Button = styled.a`
     transition: 0.3s ease-out;
   }
   &:hover {
-    background: ${props => props.theme.colors.secondary};
     box-shadow: 0 5px 15px rgba(34, 34, 34, 0.1);
     span {
       transform: rotateZ(360deg);
@@ -59,7 +81,7 @@ const Button = styled.a`
   }
 `
 
-const Intro = () => {
+const Intro = props => {
   const words = ['simple', 'typical', 'boring']
   const [party, setParty] = useState(false)
   const [count, setCount] = useState(0)
@@ -80,26 +102,35 @@ const Intro = () => {
 
   return (
     <Wrapper>
-      <Title>Subtle UI</Title>
-      <Text>
-        A collection of clever yet understated user interactions found on the
-        web. These examples live in the sweet spot between a{' '}
-        <Button onClick={changeText}>{words[count]}</Button> interaction and
-        something that feels too{' '}
-        <Button onClick={dropConfetti}>
-          <span>🎉</span>
-          gimicky
-        </Button>
-        .
-      </Text>
-      {typeof window !== `undefined` && (
-        <Confetti
-          width={window.innerWidth}
-          height={window.innerHeight}
-          colors={['#121212', '#fafafa', '#e8e8e8', '#f5ce46']}
-          numberOfPieces={party ? '200' : '0'}
+      <Container>
+        <Text>
+          <Title>Subtle UI</Title>
+          <p>
+            A collection of clever yet understated user interactions found on
+            the web. These examples live in the sweet spot between a{' '}
+            <Button onClick={changeText}>{words[count]}</Button> interaction and
+            something that feels too{' '}
+            <Button onClick={dropConfetti}>
+              <span>🎉</span>
+              gimicky
+            </Button>
+            .
+          </p>
+          {typeof window !== `undefined` && (
+            <Confetti
+              width={window.innerWidth}
+              height={window.innerHeight}
+              colors={['#121212', '#fafafa', '#e8e8e8', '#f5ce46']}
+              numberOfPieces={party ? '200' : '0'}
+            />
+          )}
+        </Text>
+        <Featured
+          title={props.featured.frontmatter.title}
+          image={props.featured.frontmatter.image}
+          slug={props.featured.fields.slug}
         />
-      )}
+      </Container>
     </Wrapper>
   )
 }

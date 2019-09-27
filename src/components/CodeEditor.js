@@ -25,7 +25,7 @@ const Preview = styled(LivePreview)`
   border: 2px solid ${props => props.theme.colors.base};
   background: white;
   position: relative;
-  padding: 1rem;
+  padding: 1.5rem;
   display: block;
   height: auto;
   flex-basis: 50%;
@@ -40,10 +40,15 @@ const Preview = styled(LivePreview)`
 `
 
 const Editor = styled(LiveEditor)`
+  padding: 1rem !important;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   font-size: 1.05em;
   line-height: 1.2em;
+  textarea {
+    padding: 1.5rem !important;
+    background: ${props => props.theme.colors.base} !important;
+  }
   textarea:focus {
     outline: none;
   }

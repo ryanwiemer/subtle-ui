@@ -30,7 +30,7 @@ const Loop = props => {
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     padding: 1em 1em 0 1em;
-    border: 1px solid gray;
+    background: #eeeeee;
     div {
       display: flex;
       align-items: center;

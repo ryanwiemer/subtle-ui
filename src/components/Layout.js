@@ -1,15 +1,8 @@
 import React from 'react'
-import styled, { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
 import Footer from '../components/Footer'
-
-const Container = styled.div`
-  max-width: ${props => props.theme.sizes.maxWidth};
-  width: 100%;
-  padding: 1.5em 1.5em 0 1.5em;
-  margin: 0 auto;
-`
 
 class Template extends React.Component {
   render() {
@@ -19,7 +12,7 @@ class Template extends React.Component {
       <div className="siteRoot">
         <ThemeProvider theme={theme}>
           <>
-            <Container className="siteContent">{children}</Container>
+            <div className="siteContent">{children}</div>
             <Footer />
           </>
         </ThemeProvider>

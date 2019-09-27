@@ -3,17 +3,14 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
-const Wrapper = styled.li`
+const Wrapper = styled.div`
   position: relative;
-  margin: 0 0 1em 0;
   width: 100%;
   text-align: center;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     flex: 0 0 49%;
-    margin: 0 0 2vw 0;
   }
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    flex: 0 0 32%;
   }
   a {
     position: relative;
@@ -34,6 +31,19 @@ const Wrapper = styled.li`
     @media (hover: none) {
       background: none!;
       box-shadow: none !important;
+    }
+    &::after {
+      content: 'New';
+      color: ${props => props.theme.colors.base};
+      text-transform: capitalize;
+      font-weight: bold;
+      position: absolute;
+      top: -0.75rem;
+      right: -0.75rem;
+      padding: 0.5rem;
+      border-radius: 2px;
+      background: ${props => props.theme.colors.highlight};
+      border: 1px solid white;
     }
   }
 `
@@ -68,7 +78,7 @@ const Placeholder = styled.div`
   border-top-right-radius: 2px;
 `
 
-const Card = props => {
+const Featured = props => {
   return (
     <Wrapper>
       <Link to={`${props.slug}`}>
@@ -88,4 +98,4 @@ const Card = props => {
   )
 }
 
-export default Card
+export default Featured
