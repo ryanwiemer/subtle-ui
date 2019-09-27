@@ -21,7 +21,7 @@ const Container = styled(Link)`
   position: relative;
   background: white;
   border: 1px solid ${props => props.theme.colors.base};
-  border-radius: 2px;
+  border-radius: 3px;
   transition: all 0.4s;
   display: flex;
   flex-flow: column;
@@ -55,8 +55,8 @@ const Container = styled(Link)`
 `
 
 const Cover = styled(Img)`
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 `
 
 const Title = styled.h2`
@@ -72,8 +72,8 @@ const Title = styled.h2`
   line-height: 1.2;
   font-weight: bold;
   text-transform: capitalize;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     font-size: 1.5em;
   }
@@ -82,8 +82,8 @@ const Title = styled.h2`
 const Placeholder = styled.div`
   background: white;
   padding-bottom: 66.67%;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 `
 
 const Card = props => {

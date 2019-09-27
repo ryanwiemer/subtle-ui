@@ -20,8 +20,8 @@ const Container = styled.div`
 `
 
 const Preview = styled(LivePreview)`
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
   border: 2px solid ${props => props.theme.colors.base};
   background: white;
   position: relative;
@@ -34,15 +34,15 @@ const Preview = styled(LivePreview)`
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     flex: 0 0 50%;
     min-height: 10rem;
-    border-top-right-radius: 2px;
+    border-top-right-radius: 3px;
     border-bottom-left-radius: 0;
   }
 `
 
 const Editor = styled(LiveEditor)`
   padding: 1rem !important;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
   font-size: 1.05em;
   line-height: 1.2em;
   textarea {
@@ -58,7 +58,7 @@ const Editor = styled(LiveEditor)`
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     flex: 0 0 50%;
     border-top-right-radius: 0;
-    border-bottom-left-radius: 2px;
+    border-bottom-left-radius: 3px;
   }
 `
 
@@ -67,20 +67,20 @@ const Error = styled(LiveError)`
   padding: 1rem;
   width: 100%;
   overflow: scroll;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 `
 
 const Label = styled.span`
   color: white;
-  border-bottom-right-radius: 2px;
+  border-bottom-right-radius: 3px;
   display: none;
   position: absolute;
   font-size: 0.95em;
   bottom: 0;
   right: 0;
   padding: 0.5em 0.5em 0.5em 1.25em;
-  border-top-left-radius: 2px;
+  border-top-left-radius: 3px;
   background: ${props => props.theme.colors.base};
   &::before {
     content: '';

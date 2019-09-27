@@ -26,11 +26,12 @@ const Container = styled.div`
 `
 
 const Title = styled.h1`
-  font-size: 2em;
+  text-transform: uppercase;
+  font-size: 2.5em;
   font-weight: bold;
   margin: 0 0 1rem 0;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    font-size: 3em;
+    font-size: 3.25em;
   }
 `
 
@@ -51,7 +52,7 @@ const Button = styled.a`
   display: inline-block;
   background: white;
   border: 1px solid ${props => props.theme.colors.tertiary};
-  border-radius: 2px;
+  border-radius: 3px;
   padding: 0.25rem 0.5rem;
   line-height: 1;
   transition: all 0.2s;
