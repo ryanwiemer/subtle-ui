@@ -15,9 +15,21 @@ const PostTemplate = ({ pageContext, location }) => {
   const post = pageContext.post
   const previous = pageContext.previous
   const next = pageContext.next
+
+  let ogImage
+  try {
+    ogImage = post.frontmatter.image.childImageSharp.ogimg.src
+  } catch (error) {
+    ogImage = null
+  }
+
   return (
     <>
-      <SEO title={post.frontmatter.title} url={post.fields.slug} />
+      <SEO
+        title={post.frontmatter.title}
+        url={post.fields.slug}
+        image={ogImage}
+      />
       <Layout location={location}>
         <Container>
           <BackButton />

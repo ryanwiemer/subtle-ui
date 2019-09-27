@@ -41,6 +41,13 @@ const query = `
             author
             github
             date(formatString: "MMMM DD, YYYY")
+            image {
+              childImageSharp {
+                ogimg: resize(width: 1000) {
+                  src
+                }
+              }
+            }
           }
         }
       }

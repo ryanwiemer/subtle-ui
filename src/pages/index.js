@@ -51,9 +51,6 @@ export const query = graphql`
                 fluid(maxWidth: 1000) {
                   ...GatsbyImageSharpFluid_withWebp_noBase64
                 }
-                ogimg: resize(width: 1000) {
-                  src
-                }
               }
             }
           }

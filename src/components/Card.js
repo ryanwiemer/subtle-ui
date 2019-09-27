@@ -15,25 +15,41 @@ const Wrapper = styled.li`
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     flex: 0 0 32%;
   }
-  a {
-    position: relative;
-    background: white;
-    border: 1px solid ${props => props.theme.colors.base};
-    border-radius: 2px;
-    transition: all 0.2s;
-    display: flex;
-    flex-flow: column;
-    height: 100%;
-    width: 100%;
-    color: ${props => props.theme.colors.base};
-    text-decoration: none;
-    &:hover {
+`
+
+const Container = styled(Link)`
+  position: relative;
+  background: white;
+  border: 1px solid ${props => props.theme.colors.base};
+  border-radius: 2px;
+  transition: all 0.4s;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+  color: ${props => props.theme.colors.base};
+  text-decoration: none;
+  img {
+    transition: transform 0.4s !important;
+  }
+  &:hover {
+    box-shadow: 0 5px 15px rgba(34, 34, 34, 0.2);
+    h2 {
       background: ${props => props.theme.colors.highlight};
-      box-shadow: 0 5px 15px rgba(34, 34, 34, 0.2);
+      color: ${props => props.theme.colors.base};
     }
-    @media (hover: none) {
-      background: none!;
-      box-shadow: none !important;
+    img {
+      transform: scale(1.1);
+    }
+  }
+  @media (hover: none) {
+    box-shadow: none !important;
+    h2 {
+      background: ${props => props.theme.colors.base} !important;
+      color: white !important;
+    }
+    img {
+      transform: scale(1) !important;
     }
   }
 `
@@ -44,10 +60,12 @@ const Cover = styled(Img)`
 `
 
 const Title = styled.h2`
+  transition: all 0.4s;
   margin-top: auto;
   width: 100%;
   align-self: flex-end;
   padding: 1rem;
+  border-top: 1px solid ${props => props.theme.colors.base};
   background: ${props => props.theme.colors.base};
   color: white;
   font-size: 1.25em;
@@ -71,7 +89,7 @@ const Placeholder = styled.div`
 const Card = props => {
   return (
     <Wrapper>
-      <Link to={`${props.slug}`}>
+      <Container to={`${props.slug}`}>
         {props.image && (
           <Cover
             sizes={{
@@ -83,7 +101,7 @@ const Card = props => {
         )}
         {props.image === null ? <Placeholder /> : ''}
         <Title>{props.title}</Title>
-      </Link>
+      </Container>
     </Wrapper>
   )
 }
