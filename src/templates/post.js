@@ -22,13 +22,14 @@ const PostTemplate = ({ pageContext, location }) => {
   } catch (error) {
     ogImage = null
   }
+  const defaultURL = 'https://subtle-ui.netlify.com'
 
   return (
     <>
       <SEO
         title={post.frontmatter.title}
         url={post.fields.slug}
-        image={ogImage}
+        image={defaultURL + ogImage}
         description={`${post.frontmatter.title} is an example of a subtle user interaction found on the web.`}
       />
       <Layout location={location}>

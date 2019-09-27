@@ -8,7 +8,7 @@ import { Link } from 'gatsby'
 const ErrorPage = () => {
   return (
     <>
-      <SEO />
+      <SEO title="Page Not Found" description=" " />
       <Layout>
         <Container>
           <Title>404 - Page Not Found</Title>

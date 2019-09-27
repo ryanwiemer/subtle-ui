@@ -33,10 +33,7 @@ const SEO = props => {
           props.title ? `${props.title} - ${defaultTitle}` : defaultTitle
         }
       />
-      <meta
-        property="og:image"
-        content={defaultURL + props.image || defaultImage}
-      />
+      <meta property="og:image" content={props.image || defaultImage} />
       <meta
         property="og:description"
         content={props.description || defaultDescription}
@@ -49,10 +46,7 @@ const SEO = props => {
           props.title ? `${props.title} - ${defaultTitle}` : defaultTitle
         }
       />
-      <meta
-        name="twitter:image"
-        content={defaultURL + props.image || defaultImage}
-      />
+      <meta name="twitter:image" content={props.image || defaultImage} />
       <meta
         name="twitter:description"
         content={props.description || defaultDescription}
