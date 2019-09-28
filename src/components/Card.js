@@ -72,8 +72,8 @@ const Title = styled.h2`
   line-height: 1.2;
   font-weight: bold;
   text-transform: capitalize;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     font-size: 1.5em;
   }
