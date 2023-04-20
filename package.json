@@ -16,7 +16,7 @@
     "gatsby-plugin-netlify": "^2.1.15",
     "gatsby-plugin-nprogress": "^2.1.7",
     "gatsby-plugin-react-helmet": "^3.1.8",
-    "gatsby-plugin-sharp": "^2.2.25",
+    "gatsby-plugin-sharp": "^4.25.1",
     "gatsby-plugin-styled-components": "^3.1.6",
     "gatsby-source-filesystem": "^2.1.26",
     "gatsby-transformer-sharp": "^2.2.17",
