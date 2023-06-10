@@ -9,7 +9,7 @@
     "@mdx-js/react": "^1.5.0",
     "babel-plugin-styled-components": "^1.10.6",
     "babel-standalone": "^6.26.0",
-    "gatsby": "^2.15.22",
+    "gatsby": "^4.25.7",
     "gatsby-image": "^2.2.21",
     "gatsby-plugin-google-analytics": "^2.1.17",
     "gatsby-plugin-mdx": "^1.0.44",
